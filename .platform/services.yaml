@@ -5,8 +5,3 @@
 dbmysqlb:
   type: oracle-mysql:8.0
   disk: 512
-  configuration:
-    properties:
-        # max_allowed_packet: 64
-        default_charset: utf8mb4
-        default_collation: utf8mb4_unicode_ci
