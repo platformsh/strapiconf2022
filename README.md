@@ -3,7 +3,7 @@
     <img src="docs/images/cta-blocks.jpg" />
   </a>
 
-  <!-- <h1 align="center">Build a production Strapi instance service <br />by service with Platform.sh</h1> -->
+  <h1 align="center">Deploying a decoupled restaurant review site to production with Strapi and Platform.sh</h1>
 
   <p align="center">
     <strong>StrapiConf 2021 - Thursday, April 22 | 1:30PM PST</strong>
@@ -14,7 +14,7 @@
     </a>
                 <br />
         <br />
-                      <a href="https://www.youtube.com/watch?v=yqt6zNNOL1Y">Watch the workshop on YouTube</a>
+                      <!-- <a href="https://www.youtube.com/watch?v=yqt6zNNOL1Y">Watch the workshop on YouTube</a> -->
         <br />
     <br />
 
