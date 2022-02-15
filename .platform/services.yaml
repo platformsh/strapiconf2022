@@ -6,3 +6,7 @@
 dbpostgres:
     type: postgresql:12
     disk: 256
+
+dbmysql:
+  type: oracle-mysql:8.0
+  disk: 256
