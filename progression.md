@@ -23,7 +23,7 @@
 6. Switch services
     - update services.yaml
     - update database.js
-    - verify migration
+    - verify migration (platform sql --relationship mysqldatabse -e pr-1 < api/data.sql)
 7. Merge
     - re-migrate data
 8. 
