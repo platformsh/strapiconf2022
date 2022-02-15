@@ -26,4 +26,5 @@
     - verify migration (platform sql --relationship mysqldatabse -e pr-1 < api/data.sql)
 7. Merge
     - re-migrate data
+    - verify production environment
 8. 
