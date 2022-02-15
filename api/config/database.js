@@ -1,7 +1,7 @@
 const path = require("path");
 const config = require("platformsh-config").config();
 
-let dbRelationship = "postgresdatabase";
+let dbRelationship = "mysqldatabase";
 
 // Strapi default sqlite settings.
 let connection = {
@@ -25,19 +25,9 @@ if (config.isValidPlatform() && !config.inBuild()) {
     `Using Platform.sh configuration with relationship ${dbRelationship}.`
   );
 
-  let pool = {
-    min: 0,
-    max: 10,
-    acquireTimeoutMillis: 600000,
-    createTimeoutMillis: 30000,
-    idleTimeoutMillis: 20000,
-    reapIntervalMillis: 20000,
-    createRetryIntervalMillis: 200,
-  };
-
   connection = {
     connection: {
-      client: "postgres",
+      client: "mysql",
       connection: {
         host: credentials.ip,
         port: credentials.port,
@@ -47,7 +37,6 @@ if (config.isValidPlatform() && !config.inBuild()) {
         ssl: false,
       },
       debug: false,
-      pool,
     },
   };
 } else {
