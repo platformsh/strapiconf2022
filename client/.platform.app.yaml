@@ -9,10 +9,13 @@ hooks:
     rm .env.development
     ln -s env/.env .env
     chmod +x update-env.sh
-  deploy: ./update-env.sh
+  deploy: |
+    ./update-env.sh
+    yarn build
 web:
   commands:
-    start: yarn dev -- -p $PORT
+    start: yarn build && yarn start
+    # start: yarn dev -- -p $PORT
 disk: 512
 mounts:
   /.next:
