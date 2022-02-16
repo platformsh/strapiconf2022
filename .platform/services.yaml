@@ -2,6 +2,6 @@
 #
 # Each service listed will be deployed
 # to power your Platform.sh project.
-dbmysql:
+dbmysqlb:
   type: oracle-mysql:8.0
   disk: 512
