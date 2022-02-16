@@ -1,0 +1,25 @@
+name: nextjs
+type: 'nodejs:14'
+dependencies:
+  nodejs:
+    yarn: "^1.22.0"
+hooks:
+  build: yarn --frozen-lockfile
+  post_deploy: next build
+web:
+  commands:
+    start: next start
+disk: 512
+mounts:
+  /.next:
+    source: local
+    source_path: 'next'
+build:
+  flavor: none
+variables:
+  env:
+    NODE_OPTIONS: --max-old-space-size=1536
+# size: L
+# resources:
+#   base_memory: 1024
+#   memory_ratio: 1024
