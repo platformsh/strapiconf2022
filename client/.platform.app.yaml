@@ -5,10 +5,10 @@ dependencies:
     yarn: "^1.22.0"
 hooks:
   build: yarn --frozen-lockfile
-  post_deploy: next build
+  post_deploy: yarn build
 web:
   commands:
-    start: next start
+    start: yarn start
 disk: 512
 mounts:
   /.next:
