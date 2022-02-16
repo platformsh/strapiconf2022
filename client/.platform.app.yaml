@@ -1,0 +1,35 @@
+name: nextjs
+type: 'nodejs:14'
+dependencies:
+  nodejs:
+    yarn: "^1.22.0"
+hooks:
+  build: |
+    yarn --frozen-lockfile
+    rm .env.development
+    ln -s env/.env .env
+    chmod +x update-env.sh
+  deploy: |
+    ./update-env.sh
+    yarn build
+web:
+  commands:
+    start: yarn build && npx next start -p $PORT
+    # start: yarn dev -- -p $PORT
+disk: 512
+mounts:
+  /.next:
+    source: local
+    source_path: 'next'
+  env:
+    source: local
+    source_path: 'env'
+build:
+  flavor: none
+variables:
+  env:
+    NODE_OPTIONS: --max-old-space-size=1536
+size: L
+resources:
+  base_memory: 1024
+  memory_ratio: 1024
