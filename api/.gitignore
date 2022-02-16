@@ -116,4 +116,5 @@ build
 ############################
 # Workshop
 ############################
-http:/localhost:1337
+http:
+poetry-demo
