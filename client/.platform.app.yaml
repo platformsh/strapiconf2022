@@ -4,8 +4,14 @@ dependencies:
   nodejs:
     yarn: "^1.22.0"
 hooks:
-  build: yarn --frozen-lockfile
-  # post_deploy: yarn build
+  build: |
+    yarn --frozen-lockfile
+    rm .env.development
+    ln -s env/.env .env
+  post_deploy: |
+    API_URL_UNTRIMMED=$(echo $PLATFORM_ROUTES | base64 --decode | jq -r 'to_entries[] | select (.value.id == "client") | .key')
+    printf "NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL\n" > .env
+    printf "PREVIEW_SECRET=mysecret" >> .env
 web:
   commands:
     start: yarn dev -- -p $PORT
@@ -14,6 +20,9 @@ mounts:
   /.next:
     source: local
     source_path: 'next'
+  env:
+    source: local
+    source_path: 'env'
 build:
   flavor: none
 variables:
