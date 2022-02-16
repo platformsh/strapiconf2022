@@ -9,12 +9,13 @@ hooks:
     rm .env.development
     ln -s env/.env .env
   deploy: |
-    API_URL_UNTRIMMED=$(echo $PLATFORM_ROUTES | base64 --decode | jq -r 'to_entries[] | select (.value.id == "api") | .key')
+    
+    # API_URL_UNTRIMMED=$(echo $PLATFORM_ROUTES | base64 --decode | jq -r 'to_entries[] | select (.value.id == "api") | .key')
     echo $API_URL_UNTRIMMED
-    export NEXT_PUBLIC_API_URL=$(echo "${API_URL_UNTRIMMED::-1}")
+    # export NEXT_PUBLIC_API_URL=$(echo "${API_URL_UNTRIMMED::-1}")
     echo $NEXT_PUBLIC_API_URL
-    printf "NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL\n" > .env
-    printf "PREVIEW_SECRET=mysecret" >> .env
+    # printf "NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL\n" > .env
+    # printf "PREVIEW_SECRET=mysecret" >> .env
 web:
   commands:
     start: yarn dev -- -p $PORT
