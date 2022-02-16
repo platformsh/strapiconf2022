@@ -42,6 +42,9 @@ Tests: https://testcafe.io/documentation/402635/getting-started
 
 
 - Open a single tunnel
-- export PLATFORM_RELATIONSHIPS="$(platform tunnel:info --encode)"
-- sqlite3mysql -f data.db -d main -u mysql -P 30000 -S -p
+- export PLATFORM_RELATIONSHIPS="$(platform tunnel:info -e pr-1 --encode)"
+- sqlite3mysql -f data.db -d main -u mysql -P 30000 -S -X -p
+    - https://stackoverflow.com/questions/18671/quick-easy-way-to-migrate-sqlite3-to-mysql/32243979#32243979
 - platform mount:upload --mount public/uploads --source public/uploads
+
+- https://github.com/techouse/sqlite3-to-mysql
