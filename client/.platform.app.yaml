@@ -8,7 +8,7 @@ hooks:
   post_deploy: yarn build
 web:
   commands:
-    start: yarn start
+    start: yarn dev
 disk: 512
 mounts:
   /.next:
