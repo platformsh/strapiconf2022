@@ -14,7 +14,7 @@ hooks:
     yarn build
 web:
   commands:
-    start: yarn build && yarn start
+    start: yarn build && npx next start -p $PORT
     # start: yarn dev -- -p $PORT
 disk: 512
 mounts:
